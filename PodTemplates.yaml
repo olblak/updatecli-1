@@ -1,0 +1,25 @@
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  labels:
+    jenkins: "agent"
+    job: "updatecli"
+  containers:
+  - args:
+    - "99d"
+    command:
+    - "sleep"
+    image: "olblak/updatecli:v0.0.20"
+    imagePullPolicy: "Always"
+    name: "updatecli"
+    resources:
+      limits:
+        memory: "512Mi"
+        cpu: "400m"
+      requests:
+        memory: "512Mi"
+        cpu: "400m"
+    securityContext:
+      privileged: false
+    tty: true
+  restartPolicy: "Never"
